@@ -72,8 +72,6 @@ section {
     background-color: #fff;
     margin-bottom: 30px;
     padding: 40px 0; /* Adjust padding for sections */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 section:last-of-type {
