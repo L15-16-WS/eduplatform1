@@ -53,4 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(card);
         });
     }
+	// Update copyright year dynamically
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
+
 });
