@@ -220,3 +220,14 @@ footer {
 .text-center {
     text-align: center;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.section-content {
+    background-color: #fff;
+    padding: 40px; /* Consistent inner padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
