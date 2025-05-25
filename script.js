@@ -1,14 +1,28 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const exploreCoursesBtn = document.getElementById('exploreCoursesBtn');
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for "Explore Courses" button and internal links
+    const exploreBtn = document.getElementById('exploreCoursesBtn');
+    const courseSection = document.querySelector('.featured-courses');
 
-    if (exploreCoursesBtn) {
-        exploreCoursesBtn.addEventListener('click', () => {
-            // In a real application, this would navigate to the courses page
-            window.location.href = 'courses.html';
+    if (exploreBtn && courseSection) {
+        exploreBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            courseSection.scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     }
 
-    // Active link highlighting for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Active link highlighting for navigation (THIS WAS MISSING BEFORE!)
     const currentLocation = location.href;
     const navLinks = document.querySelectorAll('nav ul li a');
 
@@ -18,13 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Simple animation/interaction for featured courses (optional, for later)
+    // Simple animation/interaction for featured courses (optional, for later) (THIS WAS ALSO MISSING BEFORE!)
     const courseCards = document.querySelectorAll('.course-card');
     if (courseCards.length > 0) {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
+                    entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
@@ -32,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
             threshold: 0.1 // Trigger when 10% of the item is visible
         });
 
-        courseCards.forEach(card => {
-            card.style.opacity = 0;
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        courseCards.forEach((card, index) => {
+            card.style.opacity = '0'; // Start invisible
+            card.style.transform = 'translateY(20px)'; // Start slightly below
+            card.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`; // Add staggered transition
             observer.observe(card);
         });
     }
