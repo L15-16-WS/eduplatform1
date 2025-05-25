@@ -57,6 +57,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentYearSpan = document.getElementById('current-year');
     if (currentYearSpan) {
         currentYearSpan.textContent = new Date().getFullYear();
-    }
+    } 
+	const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // Show/hide the button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top when button is clicked
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
 });
