@@ -66,6 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 backToTopBtn.style.display = 'block';
             } else {
                 backToTopBtn.style.display = 'none';
+            }if (window.scrollY > 50) { // After scrolling 50px
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
         });
 
