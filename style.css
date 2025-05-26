@@ -18,7 +18,23 @@ header  {
     background-color: #007bff; /* Primary Blue */
     color: #fff;
     padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);position: fixed; /* Make header sticky */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, padding 0.3s ease; /* Smooth transition for changes */
+}
+
+header.scrolled {
+    background-color: #007bff; /* Darker background when scrolled */
+    padding: 10px 0; /* Reduced padding when scrolled */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+header.scrolled .logo a,
+header.scrolled nav ul li a {
+    color: #fff; /* Change text color to white when scrolled */
 }
 
 header .container {
