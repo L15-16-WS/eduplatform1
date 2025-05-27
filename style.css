@@ -71,9 +71,8 @@ nav ul li a {
     overflow: hidden; /* Hide the underline until hover */
 }
 
-
 nav ul li a:hover {
-    color: #007bff; /* Blue on hover */
+    color: #fff; /* White on hover for better contrast against blue header */
 }
 
 nav ul li a span {
@@ -294,7 +293,8 @@ ul li {
     max-width: 100%;
     border-radius: 8px;
     margin-bottom: 15px;
-    height: auto; 
+    height: 200px; /* Set a fixed height for consistency */
+    object-fit: cover; /* Ensures image covers the area without distortion */
 }
 
 .course-card:hover {
